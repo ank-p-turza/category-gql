@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CategoryType {
+  id: ID!
+  name: String!
+  slug: String!
+  path: String!
+  depth: Int!
+  parentId: ID
+  isActive: Boolean!
+  children: [CategoryType!]
+  parent: CategoryType
+}
+
+type CategorySearchResultType {
+  category: CategoryType!
+  parent: CategoryType
+}
+
+type Query {
+  categories: [CategoryType!]!
+  categoryTree: [CategoryType!]!
+  category(id: ID!): CategoryType!
+  searchCategories(name: String!): [CategorySearchResultType!]!
+  categoryDescendants(id: ID!): [CategoryType!]!
+  categoryBreadcrumb(id: ID!): [CategoryType!]!
+}
+
+type Mutation {
+  createCategory(input: CreateCategoryInput!): CategoryType!
+  moveCategory(categoryId: ID!, newParentId: ID): CategoryType!
+  updateCategory(id: ID!, input: UpdateCategoryInput!): CategoryType!
+  deactivateCategory(id: ID!): CategoryType!
+  deleteCategory(id: ID!): Boolean!
+}
+
+input CreateCategoryInput {
+  name: String!
+  parentId: ID
+}
+
+input UpdateCategoryInput {
+  name: String
+  parentId: ID
+  isActive: Boolean
+}
