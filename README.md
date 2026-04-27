@@ -15,6 +15,22 @@
 
 Unlimited nested category using graphql with mongodb and redis for caching.
 
+## NestJS install
+
+```bash
+$ npm i -g @nestjs/cli
+```
+
+
+## Project Clone
+
+```bash
+$ git clone https://github.com/ank-p-turza/category-gql.git
+
+# go to project directory
+$ cd category-gql
+```
+
 ## Mongo and Redis setup
 
 ```bash
